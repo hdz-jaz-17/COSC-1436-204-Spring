@@ -1,4 +1,3 @@
-// This program calculates and displays a personal budget based on constants and variables.
 
 public class BudgetCalculator {
     public static void main(String[] args) {
