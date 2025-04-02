@@ -54,12 +54,12 @@ public class StringLab {
             start++;
             end--;
         }
-        System.out.println("Is 'racecar' a palindrome? " + isPalindrome);
+        System.out.println("Is 'food' a palindrome? " + isPalindrome);
         
         Scanner scanner = new Scanner(System.in);
         String input;
         do {
-            System.out.print("Enter a sentence: ");
+            System.out.print("For coding you create a Java Class: ");
             input = scanner.nextLine();
         } while (!input.contains("Java"));
         
@@ -94,7 +94,6 @@ public class StringLab {
         sbf.delete(startIndex, endIndex);
         System.out.println("After delete: " + sbf);
         
-     
         sbf.reverse();
         System.out.println("After reverse: " + sbf);
     }
