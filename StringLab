@@ -1,0 +1,101 @@
+import java.util.Scanner;
+
+public class StringLab {
+    public static void main (String[] args) {
+        String str = "Welcome to the Java String Lab!";
+
+        System.out.printIn("Length: " + str.length());
+
+        System.out.printIn("Character at index 7: " + str.charAt(7));
+
+        System.out.printIn("Substring 'Java' : "+ str.substring(15, 19));
+
+        System.out.printIn("Uppercase: "+ str.toUpperCase());
+
+        System.out.printIn("Lowercase: "+ str.toLowerCase());
+
+        System.out.printIn("Index of 'Java' :" + str.indexOf("Java"));
+ 
+        System.out.println("Contains 'Lab': " + str.contains("Lab"));
+        
+        System.out.println("Replace 'Java' with 'Java Programming': " + str.replace("Java", "Java Programming"));
+        
+        String[] words = str.split(" ");
+        System.out.println("Words in the string:");
+        for (String word : words) {
+            System.out.println(word);
+        }
+    
+        System.out.println("Trimmed string: '" + str.trim() + "'");
+        
+        String comparisonStr = "java string lab!";
+        System.out.println("equals(): " + str.equals(comparisonStr));
+        System.out.println("equalsIgnoreCase(): " + str.equalsIgnoreCase(comparisonStr));
+        
+        int vowelCount = 0;
+        for (int i = 0; i < str.length(); i++) {
+            char c = str.charAt(i);
+            if ("aeiouAEIOU".indexOf(c) != -1) {
+                vowelCount++;
+            }
+        }
+        System.out.println("Vowel count: " + vowelCount);
+        
+        String word = "racecar";
+        int start = 0;
+        int end = word.length() - 1;
+        boolean isPalindrome = true;
+        
+        while (start < end) {
+            if (word.charAt(start) != word.charAt(end)) {
+                isPalindrome = false;
+                break;
+            }
+            start++;
+            end--;
+        }
+        System.out.println("Is 'racecar' a palindrome? " + isPalindrome);
+        
+        Scanner scanner = new Scanner(System.in);
+        String input;
+        do {
+            System.out.print("Enter a sentence: ");
+            input = scanner.nextLine();
+        } while (!input.contains("Java"));
+        
+        System.out.println("Thank you!");
+        
+        StringBuilder sb = new StringBuilder("StringBuilder Lab");
+        
+        sb.append(" - Learning Java");
+        System.out.println("After append: " + sb);
+        
+        sb.insert(sb.indexOf("Lab") + 3, " is fun");
+        System.out.println("After insert: " + sb);
+        
+        int startIndex = sb.indexOf("Learning");
+        int endIndex = sb.indexOf("Java") + "Java".length();
+        sb.delete(startIndex, endIndex);
+        System.out.println("After delete: " + sb);
+        
+        sb.reverse();
+        System.out.println("After reverse: " + sb);
+        
+        StringBuffer sbf = new StringBuffer("Multithreading Lab");
+        
+        sbf.append(" - Learning Java");
+        System.out.println("After append: " + sbf);
+        
+        sbf.insert(sbf.indexOf("Lab") + 3, " is fun");
+        System.out.println("After insert: " + sbf);
+        
+        startIndex = sbf.indexOf("Learning");
+        endIndex = sbf.indexOf("Java") + "Java".length();
+        sbf.delete(startIndex, endIndex);
+        System.out.println("After delete: " + sbf);
+        
+     
+        sbf.reverse();
+        System.out.println("After reverse: " + sbf);
+    }
+}
