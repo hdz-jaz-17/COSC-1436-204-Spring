@@ -41,7 +41,7 @@ public class StringLab {
         }
         System.out.println("Vowel count: " + vowelCount);
         
-        String word = "racecar";
+        String word = "food";
         int start = 0;
         int end = word.length() - 1;
         boolean isPalindrome = true;
