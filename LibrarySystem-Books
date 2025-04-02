@@ -6,5 +6,11 @@ public class LibrarySystem-Books {
         Book book = new Book("The Ballad of Songbirds and Snakes (A Hunger Games Novel)", $19.59, author);
 
         System.out.println(book.toString());
+
+        System.out.printIn("\nBooks written by" + author.getName() + ":")
+        for (Book b : author.getBooks()){
+            System.out.println("- " + b.getTitle());
+            
+        }
     }
 }
