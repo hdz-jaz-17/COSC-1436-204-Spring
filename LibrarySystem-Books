@@ -1,12 +1,10 @@
-public class Main {
+public class LibrarySystem-Books {
     public static void main(String[] args) {
-        // Create an Author object for Suzanne Collins
+        
         Author author = new Author("Suzanne Collins", "suzanne.collins@gmail.com", "American");
 
-        // Create a Book object with the updated details
         Book book = new Book("The Ballad of Songbirds and Snakes (A Hunger Games Novel)", $19.59, author);
 
-        // Print the book details, which includes the author details
         System.out.println(book.toString());
     }
 }
