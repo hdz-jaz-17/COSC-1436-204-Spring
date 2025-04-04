@@ -78,18 +78,14 @@ public class StringLab {
         System.out.println("After reverse: " + sb);
         
         StringBuffer sbf = new StringBuffer("Multithreading Lab");
-        
         sbf.append(" - Learning Java");
         System.out.println("After append: " + sbf);
-        
         sbf.insert(sbf.indexOf("Lab") + 3, " is fun");
         System.out.println("After insert: " + sbf);
-        
         startIndex = sbf.indexOf("Learning");
         endIndex = sbf.indexOf("Java") + "Java".length();
         sbf.delete(startIndex, endIndex);
         System.out.println("After delete: " + sbf);
-        
         sbf.reverse();
         System.out.println("After reverse: " + sbf);
     }
