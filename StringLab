@@ -4,21 +4,16 @@ public class StringLab {
     public static void main (String[] args) {
         String str = "Welcome to the Java String Lab!";
 
-        System.out.printIn("Length: " + str.length());
-
-        System.out.printIn("Character at index 7: " + str.charAt(7));
-
-        System.out.printIn("Substring 'Java' : "+ str.substring(15, 19));
-
-        System.out.printIn("Uppercase: "+ str.toUpperCase());
-
-        System.out.printIn("Lowercase: "+ str.toLowerCase());
-
-        System.out.printIn("Index of 'Java' :" + str.indexOf("Java"));
- 
+        System.out.println("Task 1: String Methods");
+        System.out.println("Length: " + str.length());
+        System.out.println("Character at index 7: " + str.charAt(7));
+        System.out.println("Substring 'Java' : "+ str.substring(15, 19));
+        System.out.println("Uppercase: "+ str.toUpperCase());
+        System.out.println("Lowercase: "+ str.toLowerCase());
+        System.out.println("Index of 'Java' :" + str.indexOf("Java"));
         System.out.println("Contains 'Lab': " + str.contains("Lab"));
-        
-        System.out.println("Replace 'Java' with 'Java Programming': " + str.replace("Java", "Java Programming"));
+        System.out.println("Replace 'Java' with 'Java Programming': " + str.replace("Java", "Java Programming"));\
+        System.out.println("Split and print words")
         
         String[] words = str.split(" ");
         System.out.println("Words in the string:");
@@ -26,15 +21,16 @@ public class StringLab {
             System.out.println(word);
         }
     
-        System.out.println("Trimmed string: '" + str.trim() + "'");
-        
+        System.out.println("Trimmed string: '" + str.trim());
         String comparisonStr = "java string lab!";
-        System.out.println("equals(): " + str.equals(comparisonStr));
-        System.out.println("equalsIgnoreCase(): " + str.equalsIgnoreCase(comparisonStr));
+        System.out.println("equals: " + str.equals("java string lab! "));
+        System.out.println("equalsIgnoreCase(): " + str.equalsIgnoreCase("java string lab! "));
         
+        System.out.println("\nTask 2.1: Count Vowel");
+        String original =." Welcome to the Java String Lab! "
         int vowelCount = 0;
         for (int i = 0; i < str.length(); i++) {
-            char c = str.charAt(i);
+            char ch = Charcter.toLowerCase(original.charAt(i));
             if ("aeiouAEIOU".indexOf(c) != -1) {
                 vowelCount++;
             }
