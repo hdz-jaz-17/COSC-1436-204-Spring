@@ -20,10 +20,8 @@ public class SimpleCalculator{
         double num1 = getValidNUmber(scanner);
         System.out.print("Enter the second number: ");
         double num2 = getValidNUmber(scanner);
-
         double result = 0;
         boolean validOperation = true;
-
         switch (operation){
             case "+":
                 result = num1 + num2;
@@ -52,7 +50,6 @@ public class SimpleCalculator{
         userChoice = scanner.nextLine();
     
     } while (userChoice.equalsIgnoreCase("yes"));
-
     scanner.close();
 }
 private static double getValidNumber (Scanner scanner) {
