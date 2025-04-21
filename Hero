@@ -1,0 +1,107 @@
+public class Hero {
+    private String name;
+    private int powerLevel;
+    private Affiliation affiliation;
+
+    public Hero(String name, int powerLevel, Affiliation affiliation) {
+        this.name = name;
+        this.powerLevel = powerLevel;
+        this.affiliation = affiliation;
+    }
+
+    public String getName() {
+        return name;
+    }
+    public int getPowerLevel() {
+        return powerLevel;
+    }
+
+    public Affiliation getAffiliation() {
+        return affiliation;
+    }
+    @Override
+    public String toString() {
+        return "Name: " + name + ", Power Level: " + powerLevel + ", Affiliation: " + affiliation;
+    }
+}
+public enum Affiliation {
+    AVENGERS,
+    JUSTICE_LEAGUE,
+    X_MEN,
+    FANTASTIC_FOUR
+}
+import java.util.ArrayList;
+import java.util.Arrays;
+public class HeroManager {
+    private ArrayList<Hero> heroes;
+    public HeroManager() {
+        heroes = new ArrayList<>();
+    }
+    public void addHero(Hero hero) {
+        heroes.add(hero);
+    }
+    public void removeHero(String name) {
+        heroes.removeIf(hero -> hero.getName().equalsIgnoreCase(name));
+    }
+    public void bubbleSortHeroesByPower() {
+        for (int i = 0; i < heroes.size() - 1; i++) {
+            for (int j = 0; j < heroes.size() - 1 - i; j++) {
+                if (heroes.get(j).getPowerLevel() > heroes.get(j + 1).getPowerLevel()) {
+                    Hero temp = heroes.get(j);
+                    heroes.set(j, heroes.get(j + 1));
+                    heroes.set(j + 1, temp);
+                }
+            }
+        }
+    }
+    public void insertionSortHeroesByPower() {
+        for (int i = 1; i < heroes.size(); i++) {
+            Hero key = heroes.get(i);
+            int j = i - 1;
+            while (j >= 0 && heroes.get(j).getPowerLevel() > key.getPowerLevel()) {
+                heroes.set(j + 1, heroes.get(j));
+                j--;
+            }
+            heroes.set(j + 1, key);
+        }
+    }
+    public void displayHeroesAs2DArray() {
+        String[][] heroArray = new String[heroes.size()][3];
+        for (int i = 0; i < heroes.size(); i++) {
+            heroArray[i][0] = heroes.get(i).getName();
+            heroArray[i][1] = String.valueOf(heroes.get(i).getPowerLevel());
+            heroArray[i][2] = heroes.get(i).getAffiliation().toString();
+        }
+        System.out.println(Arrays.deepToString(heroArray));
+    }
+    public void displayHeroes() {
+        for (Hero hero : heroes) {
+            System.out.println(hero);
+        }
+    }
+}
+public class Main {
+    public static void main(String[] args) {
+        HeroManager manager = new HeroManager();
+
+        manager.addHero(new Hero("Spider-Man", 85, Affiliation.AVENGERS));
+        manager.addHero(new Hero("Batman", 90, Affiliation.JUSTICE_LEAGUE));
+        manager.addHero(new Hero("Wolverine", 88, Affiliation.X_MEN));
+        manager.addHero(new Hero("Invisible Woman", 80, Affiliation.FANTASTIC_FOUR));
+
+        System.out.println("Original List:");
+        manager.displayHeroes();
+        System.out.println("\nBubble Sorted List:");
+        manager.bubbleSortHeroesByPower();
+        manager.displayHeroes();
+        System.out.println("\nInsertion Sorted List:");
+        manager.insertionSortHeroesByPower();
+        manager.displayHeroes();
+        System.out.println("\nAfter Removing 'Batman' and Adding 'Wonder Woman':");
+        manager.removeHero("Batman");
+        manager.addHero(new Hero("Wonder Woman", 92, Affiliation.JUSTICE_LEAGUE));
+        manager.displayHeroes();
+        System.out.println("\nHeroes in 2D Array Format:");
+        manager.displayHeroesAs2DArray();
+    }
+}
